@@ -13,6 +13,10 @@ public class TicketBookingService {
 	@Autowired
 	TicketBookingRepository ticketBookingRepository;
 	
+	public void cancelTicket(Integer ticketId) {
+		ticketBookingRepository.delete(ticketId);
+	}
+	
 	public Ticket findTicketById(Integer ticketId){
 		return ticketBookingRepository.findOne(ticketId);
 	}

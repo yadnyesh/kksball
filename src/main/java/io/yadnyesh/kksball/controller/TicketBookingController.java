@@ -28,4 +28,10 @@ public class TicketBookingController {
 	public Iterable<Ticket> getAllTickets(){
 		return ticketBookingService.getAllTickets();
 	}
+	
+	@DeleteMapping(value = "/ticket/{ticketId}")
+	public void cancelTicket(@PathVariable("ticketId") Integer ticketId) {
+		ticketBookingService.cancelTicket(ticketId);
+	}
+	
 }
