@@ -17,6 +17,6 @@ public class TicketBookingController {
 
 	@GetMapping(value="ticket/{ticketId}")
 	public Ticket getTicketById(@PathVariable("ticketId") Integer ticketId){
-		return ticketBookingService.findById(ticketId);
+		return ticketBookingService.findTicketById(ticketId);
 	}
 }
