@@ -20,4 +20,8 @@ public class TicketBookingService {
 	public Ticket createTicket(Ticket ticket){
 		return ticketBookingRepository.save(ticket);
 	}
+	
+	public Iterable<Ticket> getAllTickets() {
+		return ticketBookingRepository.findAll();
+	}
 }
