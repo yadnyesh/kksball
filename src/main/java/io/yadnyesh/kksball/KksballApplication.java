@@ -15,11 +15,13 @@ public class KksballApplication {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
 		TicketBookingService ticketBookingService = applicationContext.getBean("ticketBookingService", TicketBookingService.class);
 		Ticket ticket = new Ticket();
+		ticket.setTicketId(1);
 		ticket.setBookingDate(new Date());
 		ticket.setDestStation("Mumbai");
 		ticket.setSourceStation("Pune");
 		ticket.setPassengerName("Sachin");
 		ticket.setEmail("Test@test.com");
 		ticketBookingService.createTicket(ticket);
+		System.out.println("Created ticket:" + ticketBookingService.findTicketById(1));
 	}
 }

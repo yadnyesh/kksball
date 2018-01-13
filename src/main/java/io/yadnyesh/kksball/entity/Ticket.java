@@ -106,4 +106,9 @@ public class Ticket {
 		
 		return Objects.hash(ticketId, passengerName, bookingDate, sourceStation, destStation, email);
 	}
+	
+	@Override
+	public String toString() {
+		return "Ticket{" + "ticketId=" + ticketId + ", passengerName='" + passengerName + '\'' + ", bookingDate=" + bookingDate + ", sourceStation='" + sourceStation + '\'' + ", destStation='" + destStation + '\'' + ", email='" + email + '\'' + '}';
+	}
 }
