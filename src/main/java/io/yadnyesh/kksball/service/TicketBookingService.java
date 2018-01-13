@@ -11,7 +11,7 @@ public class TicketBookingService {
 	@Autowired
 	TicketBookingRepository ticketBookingRepository;
 	
-	public Ticket findById(Integer ticketId){
+	public Ticket findTicketById(Integer ticketId){
 		return ticketBookingRepository.findOne(ticketId);
 	}
 	
