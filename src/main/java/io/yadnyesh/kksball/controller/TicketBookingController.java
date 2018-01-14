@@ -29,6 +29,11 @@ public class TicketBookingController {
 		return ticketBookingService.getAllTickets();
 	}
 	
+	@PutMapping(value = "/ticket/{ticketId}/{newEmail:.+}")
+	public Ticket updateTicket(@PathVariable("ticketId") Integer ticketId, @PathVariable("newEmail") String newEmail){
+		return ticketBookingService.updateTicket(ticketId, newEmail);
+	}
+	
 	@DeleteMapping(value = "/ticket/{ticketId}")
 	public void cancelTicket(@PathVariable("ticketId") Integer ticketId) {
 		ticketBookingService.cancelTicket(ticketId);

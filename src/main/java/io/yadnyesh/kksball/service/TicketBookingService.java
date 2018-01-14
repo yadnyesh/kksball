@@ -25,7 +25,18 @@ public class TicketBookingService {
 		return ticketBookingRepository.save(ticket);
 	}
 	
+	public Ticket updateTicket(Ticket requestTicket){
+		return ticketBookingRepository.save(requestTicket);
+	}
+	
 	public Iterable<Ticket> getAllTickets() {
 		return ticketBookingRepository.findAll();
+	}
+	
+	public Ticket updateTicket(Integer ticketId, String newEmail) {
+		Ticket ticket = ticketBookingRepository.findOne(ticketId);
+		ticket.setEmail(newEmail);
+		Ticket updatedTicket = ticketBookingRepository.save(ticket);
+		return updatedTicket;
 	}
 }
