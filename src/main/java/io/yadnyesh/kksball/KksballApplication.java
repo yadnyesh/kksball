@@ -2,6 +2,8 @@ package io.yadnyesh.kksball;
 
 import io.yadnyesh.kksball.entity.Ticket;
 import io.yadnyesh.kksball.service.TicketBookingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -9,11 +11,18 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.util.Date;
 
 @SpringBootApplication
-public class KksballApplication {
+public class KksballApplication implements CommandLineRunner {
 
+	
+	@Autowired
+	TicketBookingService ticketBookingService;
+	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
-		TicketBookingService ticketBookingService = applicationContext.getBean("ticketBookingService", TicketBookingService.class);
+	}
+	
+	@Override
+	public void run(String ...args) throws Exception {
 		Ticket ticket = new Ticket();
 		ticket.setTicketId(1);
 		ticket.setBookingDate(new Date());
@@ -24,4 +33,5 @@ public class KksballApplication {
 		ticketBookingService.createTicket(ticket);
 		System.out.println("Created ticket:" + ticketBookingService.findTicketById(1));
 	}
+	
 }
