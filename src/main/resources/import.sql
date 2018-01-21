@@ -1,0 +1,1 @@
+insert into ticket (booking_date, dest_station, email, passenger_name, source_station, ticket_id) values ('12/12/2017', 'Patna', 'dravid@cricket.in','Rahul','Chennai',2 );
