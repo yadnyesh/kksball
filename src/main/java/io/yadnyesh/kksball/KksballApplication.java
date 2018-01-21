@@ -8,11 +8,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import javax.sql.DataSource;
 import java.util.Date;
 
 @SpringBootApplication
 public class KksballApplication implements CommandLineRunner {
 
+	@Autowired
+	DataSource dataSource;
 	
 	@Autowired
 	TicketBookingService ticketBookingService;
@@ -32,6 +35,7 @@ public class KksballApplication implements CommandLineRunner {
 		ticket.setEmail("Test@test.com");
 		ticketBookingService.createTicket(ticket);
 		System.out.println("Created ticket:" + ticketBookingService.findTicketById(1));
+		System.out.println("DataSource:: " + dataSource.toString());
 	}
 	
 }
