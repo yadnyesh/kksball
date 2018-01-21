@@ -12,30 +12,8 @@ import javax.sql.DataSource;
 import java.util.Date;
 
 @SpringBootApplication
-public class KksballApplication implements CommandLineRunner {
-
-	@Autowired
-	DataSource dataSource;
-	
-	@Autowired
-	TicketBookingService ticketBookingService;
-	
+public class KksballApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
 	}
-	
-	@Override
-	public void run(String ...args) throws Exception {
-		Ticket ticket = new Ticket();
-		ticket.setTicketId(1);
-		ticket.setBookingDate(new Date());
-		ticket.setDestStation("Mumbai");
-		ticket.setSourceStation("Pune");
-		ticket.setPassengerName("Sachin");
-		ticket.setEmail("Test@test.com");
-		ticketBookingService.createTicket(ticket);
-		System.out.println("Created ticket:" + ticketBookingService.findTicketById(1));
-		System.out.println("DataSource:: " + dataSource.toString());
-	}
-	
 }
