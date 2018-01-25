@@ -13,13 +13,13 @@ public class Person {
 	@Column(name="person_id")
 	private int id;
 	
-	@Column(name="first_name")
+	@Column(name="first_name", length = 60, nullable = false)
 	private String firstName;
 	
-	@Column(name="last_name")
+	@Column(name="last_name", length = 60, nullable = false)
 	private String lastName;
 	
-	@Column(name="email")
+	@Column(name="email", unique = true)
 	private String email;
 	
 	@Column(name="create_date")
