@@ -2,6 +2,7 @@ package io.yadnyesh.kksball.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="person")
@@ -62,5 +63,40 @@ public class Person {
 	
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+	
+	public Person() {
+	
+	}
+	
+	public Person(String firstName, String lastName, String email, Date createdDate) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.createdDate = createdDate;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\'' + ", createdDate=" + createdDate + '}';
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(this == o) {
+			return true;
+		}
+		if(o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Person person = (Person) o;
+		return id == person.id && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects
+				.equals(email, person.email) && Objects.equals(createdDate, person.createdDate);
+	}
+	
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(id, firstName, lastName, email, createdDate);
 	}
 }
