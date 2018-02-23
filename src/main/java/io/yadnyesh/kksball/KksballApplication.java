@@ -27,7 +27,7 @@ public class KksballApplication implements CommandLineRunner {
 	}
 	
 	private void createPerson() {
-		//Person person1 = new Person("Sean", "Murphy", "sean.m2018@gmail.com", new Date());
-		//System.out.println(personManagementRepository.save(person1));
+		Person person1 = new Person("Sean", "Murphy", "sean.m2018@gmail.com", new Date());
+		System.out.println(personManagementRepository.save(person1));
 	}
 }

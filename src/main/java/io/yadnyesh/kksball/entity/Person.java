@@ -25,11 +25,11 @@ public class Person {
 	@Column(name="create_date")
 	private Date createdDate;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	

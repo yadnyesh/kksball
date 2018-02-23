@@ -5,6 +5,8 @@ import io.yadnyesh.kksball.repository.PersonManagementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonManagementService {
 
@@ -13,5 +15,10 @@ public class PersonManagementService {
 	
 	public Person createPerson(Person person){
 		return personManagementRepository.save(person);
+	}
+	
+	public Iterable<Person> createMultiPerson(List<Person> personList) {
+		Iterable<Person> savedPersonList = personManagementRepository.save(personList);
+		return savedPersonList;
 	}
 }
