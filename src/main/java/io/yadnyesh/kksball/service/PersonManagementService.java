@@ -11,7 +11,6 @@ public class PersonManagementService {
 	@Autowired
 	PersonManagementRepository personManagementRepository;
 	
-	
 	public Person createPerson(Person person){
 		return personManagementRepository.save(person);
 	}

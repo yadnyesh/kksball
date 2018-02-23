@@ -76,6 +76,13 @@ public class Person {
 		this.createdDate = createdDate;
 	}
 	
+	public Person(Integer id, String firstName, String lastName, String email, Date createdDate) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.createdDate = createdDate;
+	}
+	
 	@Override
 	public String toString() {
 		return "Person{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email + '\'' + ", createdDate=" + createdDate + '}';
