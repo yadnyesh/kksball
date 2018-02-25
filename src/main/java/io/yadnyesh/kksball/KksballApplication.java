@@ -31,8 +31,8 @@ public class KksballApplication implements CommandLineRunner {
 	
 	private void createPerson() {
 		//Person person1 = new Person("Sean", "Murphy", "sean.m2018@gmail.com", new Date());
-		List<Person > personList = Arrays.asList(new Person("Sean2", "Murphy2", "sean2.m2018@gmail.com2", new Date()),
-				new Person("Sean3", "Murphy3", "sean3.m2018@gmail.com", new Date()));
+		List<Person > personList = Arrays.asList(new Person("Sean4", "Murphy2", "sean4.m2018@gmail.com2", new Date()),
+				new Person("Sean5", "Murphy3", "sean5.m2018@gmail.com", new Date()));
 		Iterable<Person> createdPerson = personManagementService.createMultiPerson(personList);
 		System.out.println(createdPerson);
 		//System.out.println(personManagementRepository.save(person1));
