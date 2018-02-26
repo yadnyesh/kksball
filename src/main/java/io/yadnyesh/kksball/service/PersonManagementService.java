@@ -25,4 +25,10 @@ public class PersonManagementService {
 	public Iterable<Person> getPersonByIds(List<Integer> ids) {
 		return personManagementRepository.findAll(ids);
 	}
+	
+	public void deletePerson(Person person){
+		personManagementRepository.delete(person);
+	}
+	
+	
 }
