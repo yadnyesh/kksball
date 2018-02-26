@@ -11,7 +11,7 @@ public interface PersonManagementRepository extends CrudRepository<Person, Integ
 	
 	List<Person> findByLastNameIgnoreCase(String lastName);
 	
-	@Query(value = "SELECT p FROM Person p WHERE p.lastName = ?1")
-	List<Person> findByLastName(String lastName);
+//	@Query(value = "SELECT * FROM person WHERE last_name = ?1", nativeQuery = true)
+//	List<Person> findByLastName(String lastName);
 
 }
