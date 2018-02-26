@@ -13,5 +13,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Predicate;
 
 public interface PersonManagementRepository extends CrudRepository<Person, Integer> {
-
+	
+	@Query
+	List<Person> findByLastNameOrFirstName(String lastName, String firstName);
 }
