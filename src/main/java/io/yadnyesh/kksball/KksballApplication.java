@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication
 public class KksballApplication implements CommandLineRunner {
@@ -29,6 +30,6 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		CompletedFuture<Person> personCompletedFuture = personManagementService.findByEmail("sean.m2018@gmail.com1");
+		CompletableFuture<Person> personCompletedFuture = personManagementService.findByEmail("sean.m2018@gmail.com1");
 	}
 }

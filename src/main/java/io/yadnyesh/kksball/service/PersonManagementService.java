@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class PersonManagementService {
@@ -24,8 +25,8 @@ public class PersonManagementService {
 		return savedPersonList;
 	}
 	
-	public CompletedFuture<Person> findByEmail(String email) {
-		personManagementRepository.findByEmail(email);
+	public CompletableFuture<Person> findByEmail(String email) {
+		return personManagementRepository.findByEmail(email);
 	}
 	
 	public Iterable<Person> getPersonByIds(List<Integer> ids) {
