@@ -11,6 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import io.yadnyesh.kksball.repository.PersonManagementRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication
+@EnableAsync
 public class KksballApplication implements CommandLineRunner {
 	
 	@Autowired
