@@ -13,7 +13,5 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Predicate;
 
 public interface PersonManagementRepository extends CrudRepository<Person, Integer> {
-	
-	@Async
-	CompletableFuture<Person> findByEmail(String email);
+
 }

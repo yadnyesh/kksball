@@ -20,7 +20,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
-@EnableAsync
 public class KksballApplication implements CommandLineRunner {
 	
 	@Autowired
@@ -33,8 +32,5 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		CompletableFuture<Person> personCompletableFuture = personManagementService.findByEmail("sean.m2018@gmail.com1");
-		personCompletableFuture.get(20, TimeUnit.SECONDS);
-		System.out.println(personCompletableFuture);
 	}
 }

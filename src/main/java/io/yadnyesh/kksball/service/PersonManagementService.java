@@ -25,10 +25,6 @@ public class PersonManagementService {
 		return savedPersonList;
 	}
 	
-	public CompletableFuture<Person> findByEmail(String email) {
-		return personManagementRepository.findByEmail(email);
-	}
-	
 	public Iterable<Person> getPersonByIds(List<Integer> ids) {
 		return personManagementRepository.findAll(ids);
 	}
