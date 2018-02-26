@@ -9,8 +9,11 @@ import java.util.Objects;
 @Entity
 @Table(name="person")
 @DynamicUpdate
-@NamedQueries(value = {@NamedQuery(name = "Person.findByLastName",
-						query = "SELECT p FROM Person p WHERE p.lastName=?1 " )})
+//@NamedQueries(value = {@NamedQuery(name = "Person.findByLastName",
+//						query = "SELECT p FROM Person p WHERE p.lastName=?1 " )})
+@NamedNativeQueries(value = {
+		@NamedNativeQuery(name = "Person.findByLastName", query = "SELECT * FROM person WHERE last_name=?1", resultClass = Person.class)
+})
 public class Person {
 	
 	@Id
