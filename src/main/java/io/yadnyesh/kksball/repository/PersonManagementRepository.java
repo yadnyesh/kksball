@@ -10,10 +10,5 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public interface PersonManagementRepository extends CrudRepository<Person, Integer> {
-	
-	List<Person> findByLastNameIgnoreCase(String lastName);
-	
-//	@Query(value = "SELECT * FROM person WHERE last_name = ?1", nativeQuery = true)
-    List<Person> findByLastName(String lastName, Pageable pageable);
 
 }
