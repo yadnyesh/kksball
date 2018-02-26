@@ -32,6 +32,7 @@ public class KksballApplication implements CommandLineRunner {
 	
 	private void getPersonByLastName() {
 		List<Person> personList = personManagementService.getPersonByLastName("Murphy");
+		personList.forEach(System.out::println);
 	}
 	
 	//	private void createPerson() {
