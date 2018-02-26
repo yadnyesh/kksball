@@ -30,5 +30,10 @@ public class PersonManagementService {
 		personManagementRepository.delete(person);
 	}
 	
-	
+	public void updatePersonEmailById(int id, String newEmail){
+		Person person = personManagementRepository.findOne(id);
+		if(id == person.getId()){
+		
+		}
+	}
 }
