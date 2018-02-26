@@ -25,6 +25,10 @@ public class PersonManagementService {
 		return savedPersonList;
 	}
 	
+	public List<Person> findByLastNameOrFirstName(String firstName, String lastName) {
+		return personManagementRepository.findByLastNameOrFirstName(firstName, lastName);
+	}
+	
 	public Iterable<Person> getPersonByIds(List<Integer> ids) {
 		return personManagementRepository.findAll(ids);
 	}

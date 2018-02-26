@@ -32,5 +32,6 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
+		List<Person> list = personManagementService.findByLastNameOrFirstName("Sean", "Murphy");
 	}
 }
