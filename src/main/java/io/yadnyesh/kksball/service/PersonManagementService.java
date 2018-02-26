@@ -31,7 +31,7 @@ public class PersonManagementService {
 	}
 	
 	public List<Person> getPersonByLastName(String lastName) {
-		return personManagementRepository.findByLastName(lastName);
+		return personManagementRepository.findByLastNameIgnoreCase(lastName);
 	}
 	
 	public void updatePersonEmailById(int id, String newEmail){
