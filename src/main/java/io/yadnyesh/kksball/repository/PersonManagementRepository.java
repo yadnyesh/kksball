@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface PersonManagementRepository extends CrudRepository<Person, Integer> {
 	
-	List<Person> findByLastName(String lastName);
+	List<Person> findByLastNameIgnoreCase(String lastName);
 
 }
