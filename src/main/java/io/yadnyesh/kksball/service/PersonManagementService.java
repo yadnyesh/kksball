@@ -21,4 +21,8 @@ public class PersonManagementService {
 		Iterable<Person> savedPersonList = personManagementRepository.save(personList);
 		return savedPersonList;
 	}
+	
+	public Iterable<Person> getPersonByIds(List<Integer> ids) {
+		return personManagementRepository.findAll(ids);
+	}
 }
