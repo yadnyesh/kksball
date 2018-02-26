@@ -26,15 +26,20 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		createPerson();
+		//createPerson();
+		getPersonByLastName();
 	}
 	
-	private void createPerson() {
-		//Person person1 = new Person("Sean", "Murphy", "sean.m2018@gmail.com", new Date());
-		List<Person > personList = Arrays.asList(new Person("Sean4", "Murphy2", "sean4.m2018@gmail.com2", new Date()),
-				new Person("Sean5", "Murphy3", "sean5.m2018@gmail.com", new Date()));
-		Iterable<Person> createdPerson = personManagementService.createMultiPerson(personList);
-		System.out.println(createdPerson);
-		//System.out.println(personManagementRepository.save(person1));
+	private void getPersonByLastName() {
+		List<Person> personList = personManagementService.getPersonByLastName("Murphy");
 	}
+	
+	//	private void createPerson() {
+//		//Person person1 = new Person("Sean", "Murphy", "sean.m2018@gmail.com", new Date());
+//		List<Person > personList = Arrays.asList(new Person("Sean4", "Murphy2", "sean4.m2018@gmail.com2", new Date()),
+//				new Person("Sean5", "Murphy3", "sean5.m2018@gmail.com", new Date()));
+//		Iterable<Person> createdPerson = personManagementService.createMultiPerson(personList);
+//		System.out.println(createdPerson);
+//		//System.out.println(personManagementRepository.save(person1));
+//	}
 }
