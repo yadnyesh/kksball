@@ -1,11 +1,14 @@
 package io.yadnyesh.kksball.entity;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name="person")
+@DynamicUpdate
 public class Person {
 	
 	@Id
