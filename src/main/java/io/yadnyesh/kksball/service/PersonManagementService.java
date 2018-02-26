@@ -1,5 +1,6 @@
 package io.yadnyesh.kksball.service;
 
+import com.sun.xml.internal.ws.util.CompletedFuture;
 import io.yadnyesh.kksball.entity.Person;
 import io.yadnyesh.kksball.repository.PersonManagementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class PersonManagementService {
 		return savedPersonList;
 	}
 	
+	public CompletedFuture<Person> findByEmail(String email) {
+		personManagementRepository.findByEmail(email);
+	}
+	
 	public Iterable<Person> getPersonByIds(List<Integer> ids) {
 		return personManagementRepository.findAll(ids);
 	}
@@ -31,11 +36,11 @@ public class PersonManagementService {
 		personManagementRepository.delete(person);
 	}
 	
-	public List<Person> getPersonByLastName(String lastName, PageRequest pageRequest) {
-		//return personManagementRepository.findByLastNameIgnoreCase(lastName);
-		return personManagementRepository.findByLastName(lastName, pageRequest);
-		
-	}
+//	public List<Person> getPersonByLastName(String lastName, PageRequest pageRequest) {
+//		//return personManagementRepository.findByLastNameIgnoreCase(lastName);
+//		return personManagementRepository.findByLastName(lastName, pageRequest);
+//
+//	}
 	
 	public void updatePersonEmailById(int id, String newEmail){
 		Person person = personManagementRepository.findOne(id);

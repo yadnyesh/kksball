@@ -1,5 +1,6 @@
 package io.yadnyesh.kksball;
 
+import com.sun.xml.internal.ws.util.CompletedFuture;
 import io.yadnyesh.kksball.entity.Person;
 import io.yadnyesh.kksball.service.PersonManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,6 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
+		CompletedFuture<Person> personCompletedFuture = personManagementService.findByEmail("sean.m2018@gmail.com1");
 	}
 }
