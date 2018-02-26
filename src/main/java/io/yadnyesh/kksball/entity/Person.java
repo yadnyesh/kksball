@@ -9,6 +9,8 @@ import java.util.Objects;
 @Entity
 @Table(name="person")
 @DynamicUpdate
+@NamedQueries(value = {@NamedQuery(name = "Person.findByLastName",
+						query = "SELECT p FROM Person p WHERE p.lastName=?1 " )})
 public class Person {
 	
 	@Id
