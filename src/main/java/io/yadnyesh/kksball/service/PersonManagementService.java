@@ -3,6 +3,7 @@ package io.yadnyesh.kksball.service;
 import io.yadnyesh.kksball.entity.Person;
 import io.yadnyesh.kksball.repository.PersonManagementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,9 +31,9 @@ public class PersonManagementService {
 		personManagementRepository.delete(person);
 	}
 	
-	public List<Person> getPersonByLastName(String lastName) {
+	public List<Person> getPersonByLastName(String lastName, PageRequest pageRequest) {
 		//return personManagementRepository.findByLastNameIgnoreCase(lastName);
-		return personManagementRepository.findByLastName(lastName);
+		return personManagementRepository.findByLastName(lastName, pageRequest);
 		
 	}
 	

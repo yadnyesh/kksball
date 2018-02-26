@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import io.yadnyesh.kksball.repository.PersonManagementRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -27,13 +29,15 @@ public class KksballApplication implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception {
 		//createPerson();
-		getPersonByLastName();
-	}
-	
-	private void getPersonByLastName() {
-		List<Person> personList = personManagementService.getPersonByLastName("Murphy");
+		//getPersonByLastName();
+		List<Person> personList = personManagementService.getPersonByLastName("Murphy", new PageRequest(0,4,Sort.Direction.ASC, "firstName"));
 		personList.forEach(System.out::println);
 	}
+	
+//	private void getPersonByLastName() {
+//		List<Person> personList = personManagementService.getPersonByLastName("Murphy");
+//		personList.forEach(System.out::println);
+//	}
 	
 	//	private void createPerson() {
 //		//Person person1 = new Person("Sean", "Murphy", "sean.m2018@gmail.com", new Date());
