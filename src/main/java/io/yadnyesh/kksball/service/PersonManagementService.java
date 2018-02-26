@@ -30,9 +30,8 @@ public class PersonManagementService {
 		personManagementRepository.delete(person);
 	}
 	
-	public List<Person> getPersonByLastName(String murphy) {
-		
-		return null;
+	public List<Person> getPersonByLastName(String lastName) {
+		return personManagementRepository.findByLastName(lastName);
 	}
 	
 	public void updatePersonEmailById(int id, String newEmail){
