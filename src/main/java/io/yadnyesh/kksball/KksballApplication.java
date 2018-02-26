@@ -30,7 +30,7 @@ public class KksballApplication implements CommandLineRunner {
 	public void run(String... strings) throws Exception {
 		//createPerson();
 		//getPersonByLastName();
-		List<Person> personList = personManagementService.getPersonByLastName("Murphy", new PageRequest(0,4,Sort.Direction.ASC, "firstName"));
+		List<Person> personList = personManagementService.getPersonByLastName("Murphy", new PageRequest(0,2,Sort.Direction.ASC, "firstName"));
 		personList.forEach(System.out::println);
 	}
 	
