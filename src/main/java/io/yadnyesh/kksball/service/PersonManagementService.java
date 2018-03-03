@@ -15,8 +15,5 @@ public class PersonManagementService {
 
 	@Autowired
 	PersonManagementRepository personManagementRepository;
-	
-	public CompletableFuture<Person> findByEmail(String email) {
-		return personManagementRepository.findByEmail(email);
-	}
+
 }
