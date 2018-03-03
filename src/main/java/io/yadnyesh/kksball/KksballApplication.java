@@ -15,6 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableAsync
@@ -31,5 +32,7 @@ public class KksballApplication implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception {
 		CompletableFuture<Person> personCompletableFuture = personManagementService.findByEmail("sean5.m2018@gmail.com");
+		Person person = personCompletableFuture.get(20, TimeUnit.SECONDS);
+		System.out.println(person);
 	}
 }
