@@ -27,8 +27,5 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		List<Person> list1 = personManagementService.findByLastNameOrFirstName("Murphy", "Sean");
-		List<Person> list = personManagementService.findByLastName("Murphy", new PageRequest(0,4, Sort.Direction.ASC, "firstName"));
-		list.forEach(System.out::println);
 	}
 }

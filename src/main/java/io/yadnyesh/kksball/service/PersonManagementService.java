@@ -16,37 +16,4 @@ public class PersonManagementService {
 	@Autowired
 	PersonManagementRepository personManagementRepository;
 	
-	public Person createPerson(Person person){
-		return personManagementRepository.save(person);
-	}
-	
-	public Iterable<Person> createMultiPerson(List<Person> personList) {
-		Iterable<Person> savedPersonList = personManagementRepository.save(personList);
-		return savedPersonList;
-	}
-	
-	
-	public List<Person> findByLastNameOrFirstName(String lastName, String firstName) {
-		return personManagementRepository.findByLastNameOrFirstName(lastName, firstName);
-	}
-	
-	public Iterable<Person> getPersonByIds(List<Integer> ids) {
-		return personManagementRepository.findAll(ids);
-	}
-	
-	public void deletePerson(Person person){
-		personManagementRepository.delete(person);
-	}
-	
-	public List<Person> findByLastName(String lastName, PageRequest pageRequest) {
-		return personManagementRepository.findByLastName(lastName, pageRequest);
-	}
-	
-	public void updatePersonEmailById(int id, String newEmail){
-		Person person = personManagementRepository.findOne(id);
-		if(id == person.getId()){
-			person.setEmail(newEmail);
-		}
-		personManagementRepository.save(person);
-	}
 }

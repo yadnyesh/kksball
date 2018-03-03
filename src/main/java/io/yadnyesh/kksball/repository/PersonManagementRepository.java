@@ -10,10 +10,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface PersonManagementRepository extends CrudRepository<Person, Integer> {
-	
-	List<Person> findByLastName(String lastName, Pageable pageable);
-	
-	
-	@Query("SELECT p FROM Person p WHERE p.firstName =:firstName OR p.lastName=:lastName")
-	List<Person> findByLastNameOrFirstName(@Param("lastName") String lastName, @Param("firstName") String firstName);
+
 }
