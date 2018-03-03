@@ -7,6 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -24,7 +27,8 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		List<Person> list = personManagementService.findByLastNameOrFirstName("Murphy", "Sean");
+		List<Person> list1 = personManagementService.findByLastNameOrFirstName("Murphy", "Sean");
+		List<Person> list = personManagementService.findByLastName("Murphy", new PageRequest(0,4, Sort.Direction.ASC, "firstName"));
 		list.forEach(System.out::println);
 	}
 }

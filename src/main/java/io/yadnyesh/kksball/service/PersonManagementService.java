@@ -25,6 +25,7 @@ public class PersonManagementService {
 		return savedPersonList;
 	}
 	
+	
 	public List<Person> findByLastNameOrFirstName(String lastName, String firstName) {
 		return personManagementRepository.findByLastNameOrFirstName(lastName, firstName);
 	}
@@ -37,11 +38,9 @@ public class PersonManagementService {
 		personManagementRepository.delete(person);
 	}
 	
-//	public List<Person> getPersonByLastName(String lastName, PageRequest pageRequest) {
-//		//return personManagementRepository.findByLastNameIgnoreCase(lastName);
-//		return personManagementRepository.findByLastName(lastName, pageRequest);
-//
-//	}
+	public List<Person> findByLastName(String lastName, PageRequest pageRequest) {
+		return personManagementRepository.findByLastName(lastName, pageRequest);
+	}
 	
 	public void updatePersonEmailById(int id, String newEmail){
 		Person person = personManagementRepository.findOne(id);
