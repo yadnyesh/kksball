@@ -11,11 +11,13 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication
+@EnableAsync
 public class KksballApplication implements CommandLineRunner {
 	
 	@Autowired
