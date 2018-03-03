@@ -31,8 +31,5 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
-		CompletableFuture<Person> personCompletableFuture = personManagementService.findByEmail("sean5.m2018@gmail.com");
-		Person person = personCompletableFuture.get();
-		System.out.println(person);
 	}
 }
