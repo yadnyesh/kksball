@@ -10,4 +10,9 @@ public class SampleController {
 	public String welcome(){
 		return "Welcome, Yadnyesh!";
 	}
+	
+	@GetMapping("/error")
+	public String displayError(){
+		return "Error!!!";
+	}
 }
