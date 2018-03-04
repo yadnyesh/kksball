@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableAsync
-@RestController
 public class KksballApplication implements CommandLineRunner {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(KksballApplication.class);
@@ -43,9 +42,5 @@ public class KksballApplication implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception {
 	}
-	
-	@GetMapping("/")
-	public String welcome() {
-		return "Hello Yadnyesh!";
-	}
+
 }
