@@ -3,6 +3,8 @@ package io.yadnyesh.kksball;
 import com.sun.xml.internal.ws.util.CompletedFuture;
 import io.yadnyesh.kksball.entity.Person;
 import io.yadnyesh.kksball.service.PersonManagementService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,6 +25,8 @@ import java.util.concurrent.TimeUnit;
 @EnableAsync
 @RestController
 public class KksballApplication implements CommandLineRunner {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(KksballApplication.class);
 	
 	@Autowired
 	private PersonManagementService personManagementService;
