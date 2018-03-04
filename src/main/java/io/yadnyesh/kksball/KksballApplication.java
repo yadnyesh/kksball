@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableAsync
+@RestController
 public class KksballApplication implements CommandLineRunner {
 	
 	@Autowired
@@ -31,5 +33,9 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
+	}
+	
+	public String welcome() {
+		return "Hello Yadnyesh!";
 	}
 }
