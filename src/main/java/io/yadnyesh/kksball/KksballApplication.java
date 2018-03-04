@@ -34,6 +34,10 @@ public class KksballApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
+		LOGGER.error("error Message");
+		LOGGER.warn("warn Message");
+		LOGGER.info("info Message");
+		LOGGER.debug("debug Message");
 	}
 	
 	@Override
