@@ -1,5 +1,8 @@
 package io.yadnyesh.kksball.config;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ProdProfileBean implements EnvBasedConfig{
 	
 	@Override
