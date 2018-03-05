@@ -1,6 +1,7 @@
 package io.yadnyesh.kksball;
 
 import com.sun.xml.internal.ws.util.CompletedFuture;
+import io.yadnyesh.kksball.config.EnvBasedConfig;
 import io.yadnyesh.kksball.entity.Person;
 import io.yadnyesh.kksball.service.PersonManagementService;
 import org.slf4j.Logger;
@@ -30,6 +31,9 @@ public class KksballApplication implements CommandLineRunner {
 	@Autowired
 	private PersonManagementService personManagementService;
 	
+	@Autowired
+	EnvBasedConfig envBasedConfig;
+	
 	public static void main(String[] args) {
 		
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
@@ -41,6 +45,7 @@ public class KksballApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception {
+		envBasedConfig.setup();
 	}
 
 }
