@@ -35,7 +35,8 @@ public class KksballApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		envBasedConfig.setup();
-		Arrays.stream(args).collect(Collectors.joining(","));
+		String collectStr = Arrays.stream(args).collect(Collectors.joining(","));
+		System.out.println(collectStr);
 	}
 
 }
