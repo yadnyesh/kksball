@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 @EnableAsync
@@ -27,15 +29,13 @@ public class KksballApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
-		LOGGER.error("error Message");
-		LOGGER.warn("warn Message");
-		LOGGER.info("info Message");
-		LOGGER.debug("debug Message");
+
 	}
 	
 	@Override
-	public void run(String... strings) throws Exception {
+	public void run(String... args) throws Exception {
 		envBasedConfig.setup();
+		Arrays.stream(args).collect(Collectors.joining(","));
 	}
 
 }
