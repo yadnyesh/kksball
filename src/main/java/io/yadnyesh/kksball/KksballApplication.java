@@ -1,8 +1,6 @@
 package io.yadnyesh.kksball;
 
-import com.sun.xml.internal.ws.util.CompletedFuture;
 import io.yadnyesh.kksball.config.EnvBasedConfig;
-import io.yadnyesh.kksball.entity.Person;
 import io.yadnyesh.kksball.service.PersonManagementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,16 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableAsync
