@@ -43,5 +43,10 @@ public class TopicController {
 		return new ResponseEntity<String>(httpHeaders, HttpStatus.CREATED);
 	}
 	
+	@PutMapping("/topic")
+	public ResponseEntity<Topic> updateTopic(@RequestBody Topic topic){
+		topicService.updateTopic(topic);
+		return new ResponseEntity<Topic>(topic, HttpStatus.OK);
+	}
 	
 }
