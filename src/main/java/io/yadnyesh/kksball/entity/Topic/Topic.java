@@ -19,6 +19,9 @@ public class Topic {
 	@Column(name="category", length = 100, nullable = false)
 	private String category;
 	
+	public Topic() {
+	}
+	
 	public int getTopicId() {
 		return topicId;
 	}
