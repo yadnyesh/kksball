@@ -3,12 +3,11 @@ package io.yadnyesh.kksball.controller.topic;
 import io.yadnyesh.kksball.entity.Topic.Topic;
 import io.yadnyesh.kksball.service.Topic.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -32,4 +31,17 @@ public class TopicController {
 		List<Topic> list = topicService.getAllTopics();
 		return new ResponseEntity<List<Topic>>(list, HttpStatus.OK);
 	}
+	
+	@PostMapping("/topic")
+	public ResponseEntity<String> addTopic(@RequestBody Topic topic, UriComponentsBuilder builder) {
+		boolean flag = topicService.addTopic(topic);
+		if (flag == false) {
+			return new ResponseEntity<String>("This topic already exists.", HttpStatus.CONFLICT);
+		}
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setLocation(builder.path("/topic/{id}").buildAndExpand(topic.getTopicId()).toUri());
+		return new ResponseEntity<String>(httpHeaders, HttpStatus.CREATED);
+	}
+	
+	
 }
