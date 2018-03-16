@@ -21,9 +21,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/api/*")
-				.hasAnyRole("admin", "user").and().formLogin();
+//		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/api/*")
+//				.hasAnyRole("admin", "user").and().formLogin();
+		httpSecurity.csrf().disable()
+				.authorizeRequests()
+					.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+					.and().httpBasic().realmName("Topic security application Realm")
+					.authenticationEntryPoint(topicAuthenticationEntryPoint);
+	
 	}
+	
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
