@@ -49,4 +49,12 @@ public class TopicController {
 		return new ResponseEntity<Topic>(topic, HttpStatus.OK);
 	}
 	
+	
+	@DeleteMapping("/topic/{id}")
+	public ResponseEntity<Void> deleteTopic(@PathVariable("id") Integer id){
+		topicService.deleteTopic(id);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+	
+	
 }
