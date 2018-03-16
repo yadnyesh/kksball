@@ -1,3 +1,8 @@
 package io.yadnyesh.kksball.service.Topic;
 
-public class TopicService {}
+import org.springframework.stereotype.Service;
+
+@Service
+public class TopicService {
+
+}
