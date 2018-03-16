@@ -2,7 +2,7 @@ drop table if exists topics;
 drop table if exists users;
 
 create table topics (
-        topic_id integer not null auto_increment,
+        topic_id SERIAL,
         category varchar(100) not null,
         title varchar(100) not null,
         primary key (topic_id)
