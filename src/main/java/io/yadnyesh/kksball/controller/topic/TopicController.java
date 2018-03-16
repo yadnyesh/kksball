@@ -18,6 +18,6 @@ public class TopicController {
 	public TopicController(TopicService topicService) {}
 	
 	public ResponseEntity<Topic> getTopicById(@PathVariable ("id") Integer id) {
-		Topic topic = topicService.get
+		Topic topic = topicService
 	}
 }
