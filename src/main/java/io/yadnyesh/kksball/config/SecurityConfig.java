@@ -21,8 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-//		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/api/*")
-//				.hasAnyRole("admin", "user").and().formLogin();
 		httpSecurity.csrf().disable()
 				.authorizeRequests()
 					.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
@@ -34,9 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication().withUser("sean").password("password").roles("user").and()
-		////		.withUser("test").password("password").roles("test");
-		
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(bCryptPasswordEncoder);
 	}
