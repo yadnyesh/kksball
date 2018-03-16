@@ -1,5 +1,6 @@
 package io.yadnyesh.kksball.config;
 
+import io.yadnyesh.kksball.service.Topic.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,6 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private TopicAuthenticationEntryPoint topicAuthenticationEntryPoint;
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
