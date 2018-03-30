@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.Future;
 
 @Service
-public class AsyncServices {
-	Logger logger = LoggerFactory.getLogger(AsyncServices.class);
+public class AsyncService {
+	Logger logger = LoggerFactory.getLogger(AsyncService.class);
 	
 	@Async
 	public Future<String> process() throws InterruptedException {
