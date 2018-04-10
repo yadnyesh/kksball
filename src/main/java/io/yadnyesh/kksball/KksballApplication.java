@@ -1,6 +1,7 @@
 package io.yadnyesh.kksball;
 
 import io.yadnyesh.kksball.config.EnvBasedConfig;
+import io.yadnyesh.kksball.service.AsyncService;
 import io.yadnyesh.kksball.service.PersonManagementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.Arrays;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
@@ -19,6 +21,9 @@ import java.util.stream.Collectors;
 public class KksballApplication implements CommandLineRunner {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(KksballApplication.class);
+	
+	@Autowired
+	AsyncService asyncService;
 	
 	@Autowired
 	private PersonManagementService personManagementService;
@@ -37,6 +42,12 @@ public class KksballApplication implements CommandLineRunner {
 		envBasedConfig.setup();
 		String collectStr = Arrays.stream(args).collect(Collectors.joining(","));
 		System.out.println(collectStr);
+		
+		Future<String> process1 = asyncService.process();
+		Future<String> process2 = asyncService.process();
+		Future<String> process3 = asyncService.process();
+		
+		
 	}
 
 }
