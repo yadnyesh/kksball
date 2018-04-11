@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,11 @@ public class SampleController implements ErrorController {
 	@GetMapping("/welcome")
 	public String welcome(){
 		return "Welcome, Yadnyesh!";
+	}
+	
+	@GetMapping("/welcome/{name}")
+	public String welcomeWithName(@PathVariable String name){
+		return "Welcome, " + name;
 	}
 	
 //	@GetMapping(PATH)
