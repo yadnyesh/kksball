@@ -1,7 +1,9 @@
 package io.yadnyesh.kksball;
 
 import io.yadnyesh.kksball.config.EnvBasedConfig;
+import io.yadnyesh.kksball.entity.GithubUser;
 import io.yadnyesh.kksball.service.AsyncService;
+import io.yadnyesh.kksball.service.GithubLookupService;
 import io.yadnyesh.kksball.service.PersonManagementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
@@ -32,6 +35,9 @@ public class KksballApplication implements CommandLineRunner {
 	private PersonManagementService personManagementService;
 	
 	@Autowired
+	private GithubLookupService githubLookupService;
+	
+	@Autowired
 	EnvBasedConfig envBasedConfig;
 	
 	public static void main(String[] args) {
@@ -45,23 +51,6 @@ public class KksballApplication implements CommandLineRunner {
 		envBasedConfig.setup();
 		String collectStr = Arrays.stream(args).collect(Collectors.joining(","));
 		System.out.println(collectStr);
-		
-		Future<String> process1 = asyncService.process();
-		Future<String> process2 = asyncService.process();
-		Future<String> process3 = asyncService.process();
-		
-		
-	}
-	
-	@Bean
-	public Executor asyncExecutor() {
-		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(2);
-		executor.setMaxPoolSize(2);
-		executor.setQueueCapacity(500);
-		executor.setThreadNamePrefix("GithubLookup-");
-		executor.initialize();
-		return executor;
 	}
 
 }
