@@ -3,7 +3,7 @@ package io.yadnyesh.kksball.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class githubUser {
+public class GithubUser {
 
 	private String user;
 	private String blog;
@@ -26,6 +26,6 @@ public class githubUser {
 	
 	@Override
 	public String toString() {
-		return "githubUser{" + "user='" + user + '\'' + ", blog='" + blog + '\'' + '}';
+		return "GithubUser{" + "user='" + user + '\'' + ", blog='" + blog + '\'' + '}';
 	}
 }
