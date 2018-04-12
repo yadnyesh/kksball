@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.Arrays;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 @EnableAsync
+@EnableScheduling
 public class KksballApplication implements CommandLineRunner {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(KksballApplication.class);
