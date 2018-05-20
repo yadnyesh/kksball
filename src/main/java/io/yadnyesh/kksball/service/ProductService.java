@@ -11,4 +11,9 @@ public class ProductService {
 		LOGGER.info("getProduct called for id: {}", id);
 		return new Product(id, "0826663141405", "The Angry Beavers: The Complete Series");
 	}
+	
+	public void updateProduct(String id){
+		LOGGER.info("Update product for id: {} ", id);
+		//Doing nothing, this is just for simulation
+	}
 }
