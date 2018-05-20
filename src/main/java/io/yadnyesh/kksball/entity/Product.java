@@ -30,4 +30,10 @@ public class Product implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Product(String id, String ean, String name) {
+		this.id = id;
+		this.ean = ean;
+		this.name = name;
+	}
 }
