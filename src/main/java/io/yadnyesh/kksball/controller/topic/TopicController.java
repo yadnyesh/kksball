@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class TopicController {
 	
+	@Autowired
 	TopicService topicService;
 	
 	@Autowired
