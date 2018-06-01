@@ -26,4 +26,9 @@ public class TopicRestTestUtil {
 		headers.add("Authorization", "Basic " + encodedCredential);
 		return headers;
 	}
+	
+	public static void main(String[] args) {
+		TopicRestTestUtil topicRestTestUtil = new TopicRestTestUtil();
+		topicRestTestUtil.getTopicByIdDemo();
+	}
 }
