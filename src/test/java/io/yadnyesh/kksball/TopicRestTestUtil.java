@@ -44,6 +44,18 @@ public class TopicRestTestUtil {
 		
 	}
 	
+	public void updateTopicDemo(){
+		HttpHeaders headers = getHeaders();
+		RestTemplate restTemplate = new RestTemplate();
+		String url = "http://localhost:8080/user/topic";
+		Topic topic = new Topic();
+		topic.setTopicId(1);
+		topic.setTitle("Updated: Java Get upto speed");
+		topic.setCategory("Java");
+		HttpEntity<Topic> httpEntity = new HttpEntity<Topic>(topic, headers);
+		restTemplate.put(url, headers);
+	}
+	
 	private HttpHeaders getHeaders() {
 		String credential = "sean:s@123";
 		String encodedCredential = new String(Base64.encodeBase64(credential.getBytes()));
@@ -57,5 +69,7 @@ public class TopicRestTestUtil {
 		TopicRestTestUtil topicRestTestUtil = new TopicRestTestUtil();
 		topicRestTestUtil.getTopicByIdDemo();
 		topicRestTestUtil.getAllTopicsDemo();
+		topicRestTestUtil.addTopicDemo();
+		topicRestTestUtil.updateTopicDemo();
 	}
 }
