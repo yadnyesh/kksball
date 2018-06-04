@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
@@ -55,6 +56,29 @@ public class TopicController {
 	public ResponseEntity<Void> deleteTopic(@PathVariable("id") Integer id){
 		topicService.deleteTopic(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+	
+	@GetMapping("/login")
+	public ModelAndView login() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("custom-login");
+		return modelAndView;
+	}
+	
+	@GetMapping("/topic-details")
+	public ModelAndView getAllUserTopics(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("usertopics", topicService.getAllTopics());
+		modelAndView.setViewName("topics");
+		return modelAndView;
+	}
+	
+	public ModelAndView error() {
+		ModelAndView modelAndView = new ModelAndView();
+		String errorMessage = "You are not authorized to access the API";
+		modelAndView.addObject("errorMsg", errorMessage);
+		modelAndView.setViewName("error");
+		return modelAndView;
 	}
 	
 	
