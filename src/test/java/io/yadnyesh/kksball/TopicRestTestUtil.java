@@ -5,6 +5,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
 import java.util.Arrays;
 
 public class TopicRestTestUtil {
@@ -20,7 +21,7 @@ public class TopicRestTestUtil {
 	}
 	
 	
-	public void getAllTopics() {
+	public void getAllTopicsDemo() {
 		HttpHeaders headers = getHeaders();
 		RestTemplate restTemplate = new RestTemplate();
 		String url = "http://localhost:8080/user/topics";
@@ -28,6 +29,19 @@ public class TopicRestTestUtil {
 		ResponseEntity<Topic []> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Topic[].class);
 		Topic[] topics = responseEntity.getBody();
 		Arrays.stream(topics).forEach(System.out::println);
+	}
+	
+	public void addTopicDemo() {
+		HttpHeaders headers = getHeaders();
+		RestTemplate restTemplate = new RestTemplate();
+		String url = "http://localhost:8080/user/topic";
+		Topic topic = new Topic();
+		topic.setTitle("SpringBoot REST Service with Jacoco");
+		topic.setCategory("Spring Boot REST");
+		HttpEntity<Topic> requestEntity = new HttpEntity<Topic>(topic, headers);
+		URI uri = restTemplate.postForLocation(url, requestEntity);
+		System.out.printf(uri.getPath());
+		
 	}
 	
 	private HttpHeaders getHeaders() {
@@ -42,6 +56,6 @@ public class TopicRestTestUtil {
 	public static void main(String[] args) {
 		TopicRestTestUtil topicRestTestUtil = new TopicRestTestUtil();
 		topicRestTestUtil.getTopicByIdDemo();
-		topicRestTestUtil.getAllTopics();
+		topicRestTestUtil.getAllTopicsDemo();
 	}
 }
