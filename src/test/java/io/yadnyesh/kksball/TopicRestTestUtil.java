@@ -52,8 +52,8 @@ public class TopicRestTestUtil {
 		topic.setTopicId(1);
 		topic.setTitle("Updated: Java Get upto speed");
 		topic.setCategory("Java");
-		HttpEntity<Topic> httpEntity = new HttpEntity<Topic>(topic, headers);
-		restTemplate.put(url, headers);
+		HttpEntity<Topic> requestEntity = new HttpEntity<Topic>(topic, headers);
+		restTemplate.put(url, requestEntity);
 	}
 	
 	private HttpHeaders getHeaders() {
@@ -69,7 +69,7 @@ public class TopicRestTestUtil {
 		TopicRestTestUtil topicRestTestUtil = new TopicRestTestUtil();
 		topicRestTestUtil.getTopicByIdDemo();
 		topicRestTestUtil.getAllTopicsDemo();
-		topicRestTestUtil.addTopicDemo();
+		//topicRestTestUtil.addTopicDemo();
 		topicRestTestUtil.updateTopicDemo();
 	}
 }
