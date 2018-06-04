@@ -56,6 +56,14 @@ public class TopicRestTestUtil {
 		restTemplate.put(url, requestEntity);
 	}
 	
+	public void deleteTopicDemo(){
+		HttpHeaders headers = getHeaders();
+		RestTemplate restTemplate = new RestTemplate();
+		String url = "http://localhost:8080/user/topic/{id}";
+		HttpEntity<Topic> requestEntity = new HttpEntity<Topic>(headers);
+		restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Void.class, 2);
+	}
+	
 	private HttpHeaders getHeaders() {
 		String credential = "sean:s@123";
 		String encodedCredential = new String(Base64.encodeBase64(credential.getBytes()));
@@ -71,5 +79,6 @@ public class TopicRestTestUtil {
 		topicRestTestUtil.getAllTopicsDemo();
 		//topicRestTestUtil.addTopicDemo();
 		topicRestTestUtil.updateTopicDemo();
+		topicRestTestUtil.deleteTopicDemo();
 	}
 }
