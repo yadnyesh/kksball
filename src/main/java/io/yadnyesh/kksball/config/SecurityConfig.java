@@ -21,11 +21,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.csrf().disable()
-				.authorizeRequests()
-					.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
-					.and().httpBasic().realmName("Topic security application Realm")
-					.authenticationEntryPoint(topicAuthenticationEntryPoint);
+//		httpSecurity.csrf().disable()
+//				.authorizeRequests()
+//					.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+//					.and().httpBasic().realmName("Topic security application Realm")
+//					.authenticationEntryPoint(topicAuthenticationEntryPoint);
+		httpSecurity.authorizeRequests()
+				.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+				.and().formLogin()
+				.loginPage("/user/login")
+				.loginProcessingUrl("/app-login")
+				.usernameParameter("app_username")
+				.passwordParameter("app_password")
+				.defaultSuccessUrl("/user/secure/topic-details")
+				.and().logout()
+				.logoutUrl("/app-logout")
+				.logoutSuccessUrl("/user/login")
+				.and().exceptionHandling()
+				.accessDeniedPage("/user/error");
 	
 	}
 	
