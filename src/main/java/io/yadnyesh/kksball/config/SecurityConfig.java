@@ -16,18 +16,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsServiceImpl userDetailsServiceImpl;
 	
-	@Autowired
-	private TopicAuthenticationEntryPoint topicAuthenticationEntryPoint;
+//	@Autowired
+//	private TopicAuthenticationEntryPoint topicAuthenticationEntryPoint;
+	
+//	@Override
+//	protected void configure(HttpSecurity httpSecurity) throws Exception {
+////		httpSecurity.csrf().disable()
+////				.authorizeRequests()
+////					.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+////					.and().httpBasic().realmName("Topic security application Realm")
+////					.authenticationEntryPoint(topicAuthenticationEntryPoint);
+//		httpSecurity.authorizeRequests()
+//				.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+//				.and().formLogin()
+//				.loginPage("/user/login")
+//				.loginProcessingUrl("/app-login")
+//				.usernameParameter("app_username")
+//				.passwordParameter("app_password")
+//				.defaultSuccessUrl("/user/topic-details")
+//				.and().logout()
+//				.logoutUrl("/app-logout")
+//				.logoutSuccessUrl("/user/login")
+//				.and().exceptionHandling()
+//				.accessDeniedPage("/user/error");
+//
+//	}
 	
 	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
-//		httpSecurity.csrf().disable()
-//				.authorizeRequests()
-//					.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
-//					.and().httpBasic().realmName("Topic security application Realm")
-//					.authenticationEntryPoint(topicAuthenticationEntryPoint);
-		httpSecurity.authorizeRequests()
-				.antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers("/user/secure/**").hasAnyRole("ADMIN","USER")
 				.and().formLogin()
 				.loginPage("/user/login")
 				.loginProcessingUrl("/app-login")
@@ -39,10 +57,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/user/login")
 				.and().exceptionHandling()
 				.accessDeniedPage("/user/error");
-	
 	}
 	
-
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
