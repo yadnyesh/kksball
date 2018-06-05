@@ -14,19 +14,20 @@ public class WebContainerConfig {
 	
 	@Bean
 	public EmbeddedServletContainerFactory embeddedServletContainerFactory() {
-		TomcatEmbeddedServletContainerFactory tomcatEmbeddedServletContainerFactory = new TomcatEmbeddedServletContainerFactory()
-		{
-			@Override
-			protected void postProcessContext(Context context) {
-				SecurityConstraint constraint = new SecurityConstraint();
-				constraint.setUserConstraint("CONFIDENTIAL");
-				SecurityCollection collection = new SecurityCollection();
-				collection.addPattern("/*");
-				constraint.addCollection(collection);
-				context.addConstraint(constraint);
-			}
-		};
-		tomcatEmbeddedServletContainerFactory.addAdditionalTomcatConnectors(createSslConnector());
+//		TomcatEmbeddedServletContainerFactory tomcatEmbeddedServletContainerFactory = new TomcatEmbeddedServletContainerFactory()
+//		{
+//			@Override
+//			protected void postProcessContext(Context context) {
+//				SecurityConstraint constraint = new SecurityConstraint();
+//				constraint.setUserConstraint("CONFIDENTIAL");
+//				SecurityCollection collection = new SecurityCollection();
+//				collection.addPattern("/*");
+//				constraint.addCollection(collection);
+//				context.addConstraint(constraint);
+//			}
+//		};
+//		tomcatEmbeddedServletContainerFactory.addAdditionalTomcatConnectors(createSslConnector());
+		TomcatEmbeddedServletContainerFactory tomcatEmbeddedServletContainerFactory = new TomcatEmbeddedServletContainerFactory();
 		return tomcatEmbeddedServletContainerFactory;
 	}
 	

@@ -1,7 +1,9 @@
 package io.yadnyesh.kksball;
 
 import io.yadnyesh.kksball.config.EnvBasedConfig;
+import io.yadnyesh.kksball.entity.Employee;
 import io.yadnyesh.kksball.entity.GithubUser;
+import io.yadnyesh.kksball.repository.EmployeeRepository;
 import io.yadnyesh.kksball.service.AsyncService;
 import io.yadnyesh.kksball.service.GithubLookupService;
 import io.yadnyesh.kksball.service.PersonManagementService;
@@ -42,6 +44,9 @@ public class KksballApplication implements CommandLineRunner {
 	@Autowired
 	EnvBasedConfig envBasedConfig;
 	
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
 	public static void main(String[] args) {
 		
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KksballApplication.class, args);
@@ -53,6 +58,15 @@ public class KksballApplication implements CommandLineRunner {
 		envBasedConfig.setup();
 		String collectStr = Arrays.stream(args).collect(Collectors.joining(","));
 		System.out.println(collectStr);
+		employeeRepository.save(getEmployee());
 	}
 
+	private Employee getEmployee() {
+		Employee employee = new Employee();
+		employee.setEmployeeName("Yadnyesh");
+		employee.setEmail("yadnyesh@yotabyte.io");
+		employee.setSalary(90000000000.00);
+		return employee;
+	}
+	
 }
