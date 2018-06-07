@@ -2,7 +2,6 @@ package io.yadnyesh.kksball;
 
 import io.yadnyesh.kksball.config.EnvBasedConfig;
 import io.yadnyesh.kksball.entity.Employee;
-import io.yadnyesh.kksball.entity.GithubUser;
 import io.yadnyesh.kksball.repository.EmployeeRepository;
 import io.yadnyesh.kksball.service.AsyncService;
 import io.yadnyesh.kksball.service.GithubLookupService;
@@ -66,6 +65,7 @@ public class KksballApplication implements CommandLineRunner {
 		employee.setEmployeeName("Yadnyesh");
 		employee.setEmail("yadnyesh@yotabyte.io");
 		employee.setSalary(90000000000.00);
+		System.out.println(employee);
 		return employee;
 	}
 	

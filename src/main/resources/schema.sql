@@ -19,8 +19,6 @@ create table topics (
     primary key (username)
 );
 
-
-drop table if exists employee_table;
  create table employee_table (
         employee_id SERIAL,
         email varchar(255),
