@@ -19,10 +19,10 @@ create table topics (
     primary key (username)
 );
 
- create table employee_table (
-        employee_id SERIAL,
-        email varchar(255),
-        employee_name varchar(255),
-        salary double precision,
-        primary key (employee_id)
-    );
+-- create table employee_table (
+--        employee_id SERIAL,
+--        email varchar(255),
+--        employee_name varchar(255),
+--        salary double precision,
+--        primary key (employee_id)
+--    );
