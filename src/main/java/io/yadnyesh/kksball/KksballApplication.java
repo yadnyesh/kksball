@@ -44,11 +44,12 @@ public class KksballApplication implements CommandLineRunner {
 		envBasedConfig.setup();
 		String collectStr = Arrays.stream(args).collect(Collectors.joining(","));
 		System.out.println(collectStr);
-		employeeRepository.save(getEmployee());
+		//employeeRepository.save(getEmployee());
 	}
 
 	private Employee getEmployee() {
 		Employee employee = new Employee();
+		employee.setEmployeeId(100);
 		employee.setEmployeeName("Yadnyesh");
 		employee.setEmail("yadnyesh@yotabyte.io");
 		employee.setSalary(90000000000.00);

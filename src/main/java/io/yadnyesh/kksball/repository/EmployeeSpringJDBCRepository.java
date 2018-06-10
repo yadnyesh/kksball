@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by z063407 on 6/7/18.
  */
-@Repository
 public class EmployeeSpringJDBCRepository {
 
 	@Autowired

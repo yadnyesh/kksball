@@ -1,6 +1,6 @@
 drop table if exists topics;
 drop table if exists users;
-drop table if exists employee_table;
+--drop table if exists employee_table;
 
 create table topics (
     topic_id SERIAL,

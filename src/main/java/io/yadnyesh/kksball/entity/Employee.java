@@ -10,6 +10,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@SequenceGenerator(name="employee_table_employee_id_seq", sequenceName = "employee_table_employee_id_seq")
 	@Column(name="employee_id")
 	private Integer employeeId;
 	
